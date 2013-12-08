@@ -34,3 +34,15 @@ doc_id	class_id
 - ![架構一](https://raw.github.com/evenchange4/102-1_DMIR_PA_Rocchio-Classifier/master/image/struct2.png)
 - ![架構二](https://raw.github.com/evenchange4/102-1_DMIR_PA_Rocchio-Classifier/master/image/struct1.png)
 - 依照投影片上的演算法分做 training phase、testing phase 兩段來實作。
+	![Rocchio Classifier 演算法](https://raw.github.com/evenchange4/102-1_DMIR_PA_Rocchio-Classifier/master/image/algorithm.png)
+
+## 4. Advantage of your program
+易讀性高，又不失效能。
+
+## 5. Discussions
+我在做這次Assignment最大的困惑在於資料結構的挑選上，因為spec上輸出的格式並不會比較好拿來使用，最後決定還是先把所有資料存放在hash table中，拿來做完所有的運算後再輸出程比較易懂的spec要求格式。在考慮的過程中有發現有些同學是直接把資料放在database裡面，雖然這也是一個運用的好方法，但是執行效率卻大打折扣。
+
+## 6. Resource & Reference
+- ruby [http://www.ruby-lang.org/zh_TW/downloads/](http://www.ruby-lang.org/zh_TW/downloads/)
+- ruby array [http://www.ruby-doc.org/core-1.9.2/Array.html](http://www.ruby-doc.org/core-1.9.2/Array.html)
+- ruby hash [http://www.ruby-doc.org/core-1.9.2/Hash.html](http://www.ruby-doc.org/core-1.9.2/Hash.html)
