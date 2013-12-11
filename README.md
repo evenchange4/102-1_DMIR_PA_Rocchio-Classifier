@@ -16,6 +16,8 @@ The Programming Assignment report from NTU102-1 [DMIR](https://ceiba.ntu.edu.tw/
 $ cd code && ruby Rocchi_Classifier.rb
 ```
 
+	- ![執行的過程]()
+
 ### Output result `output.txt`
 
 ```
