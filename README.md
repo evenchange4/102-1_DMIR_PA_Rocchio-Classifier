@@ -20,13 +20,17 @@ $ cd code && ruby Rocchi_Classifier.rb
 
 ```
 doc_id	class_id
-17	6
-18	5
-20	3
-21	3
-22	3
+17	2
+18	2
+20	2
+21	2
+22	2
 ...
 ```
+
+- *其中用 `\t` tab 符號做分隔。*
+
+
 ## 2. Your program design & procedure
 我用最簡單的資料形態去實作，然後用single-link做merge。 首先我挑選ADT dictionary 作為這次的資料形態，而我所挑選的oop語言有實作出這部分hash table(hash)，因為一個key對應到一個value，比較方便去使用，所以就直接拿來運用了。接著我把Assignment切割五個部分來完成。
 
