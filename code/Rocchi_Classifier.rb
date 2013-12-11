@@ -22,18 +22,20 @@ File.open("../data/training.txt", 'rb').each do |l1|
 				doc_k = tmp2[0]
 				doc_v = tmp2[1].strip!.to_f
 				if centroid.has_key?(doc_k)
-					centroid[doc_k] += doc_v
+					centroid[doc_k] += doc_v/15
 				else
-					centroid[doc_k] = doc_v
+					centroid[doc_k] = doc_v/15
 				end
 			end
 		end
 	end
 
 	## 除 docs 長度
-	centroid.each do |k, v|
-		centroid[k] = v / 15
-	end
+	# centroid.each do |k, v|
+	# 	centroid[k] = v / 15
+	# end
+
+	# p centroid
 
 	train_U[clas] = centroid
 end
@@ -51,32 +53,31 @@ test_docs.each do |i|
 
 	length_doc = 0
 	# each vector
+	doc_terms = Array.new(13,[])
 	File.open("../data/vector_doc/#{i}.txt", 'rb').each_with_index do |l, i|
+
 		if i > 0 
 			temp = l.split("\t")
 			doc_k = temp[0]
 			doc_v = temp[1].strip!.to_f
-
-			# length of testing doc
-			length_doc += doc_v ** 2
-
 			# each clas
 			(1..13).each do |c|
-				if train_U[c.to_s].has_key?(doc_k)
-					# puts "class #{c} ,key #{doc_k} => #{train_U[c.to_s][doc_k]}"
+				if train_U[c.to_s].has_key?(doc_k)  
 					argmin_class[c-1] += (train_U[c.to_s][doc_k] - doc_v) ** 2
-					# argmin_class[c-1] += (train_U[c.to_s][doc_k] * doc_v)
+					doc_terms[c-1] << doc_k
 				else
+					argmin_class[c-1] += (0-doc_v) ** 2
 				end
 			end
 		end
 	end
 
-	# argmin_class.each_with_index do |v ,i|
-	# 	argmin_class[i] = v / (Math.sqrt(length_doc)*length_train_U[(i+1).to_s])
-	# end
+	(1..13).each do |c|
+		(train_U[c.to_s].keys - doc_terms[c-1]).each do |t|
+			argmin_class[c-1] += train_U[c.to_s][t] ** 2
+		end
+	end
 
-	p argmin_class
 	test_result = argmin_class.index(argmin_class.min)+1
 	output << "#{i}\t#{test_result}\n" 
 end

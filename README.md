@@ -40,7 +40,7 @@ doc_id	class_id
 易讀性高，又不失效能。
 
 ## 5. Discussions
-我在做這次Assignment最大的困惑在於資料結構的挑選上，因為spec上輸出的格式並不會比較好拿來使用，最後決定還是先把所有資料存放在hash table中，拿來做完所有的運算後再輸出程比較易懂的spec要求格式。在考慮的過程中有發現有些同學是直接把資料放在database裡面，雖然這也是一個運用的好方法，但是執行效率卻大打折扣。
+我在做這次 Assignment 實做演算法的過程中沒有發現到原來 centroid 沒有出現的字但是 testing document 的 term 也需要減零做計算；相反亦同，當 testing document 有出現的 term 但是 centroid 沒有出現，也要減零做計算。但這部分一直沒有想到比較好的方法，如果要將兩邊都個跑一遍迴圈會使得效率大幅降低，因此日後還是有改善的空間。
 
 ## 6. Resource & Reference
 - ruby [http://www.ruby-lang.org/zh_TW/downloads/](http://www.ruby-lang.org/zh_TW/downloads/)
